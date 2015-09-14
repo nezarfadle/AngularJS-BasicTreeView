@@ -2,6 +2,9 @@
 	<li ng-repeat="node in nodes">
 		<input type="checkbox" ng-model="node.selected" ng-click="selectAllChildren(node)">
 		{{node.text}}
+
+		<!-- recursive call is in this line -->
 		<data-zombie ng-if="node.next.length" onload="nodes = node.next" ng-include="templateFile"></data-zombie>
+		
 	</li>
 </ul>

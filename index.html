@@ -5,13 +5,15 @@
 </head>
 <body>
 <span ng-app="app" ng-controller="MainController">
+
+<!-- tree view -->
 <tree-view nodes="items" template-file="template.html"></tree-view>
 
 <hr>
-
 <pre> 
 	{{items | json}}
 </pre>	
+
 </span>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
