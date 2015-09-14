@@ -34,10 +34,12 @@ angular.module('app', [])
 	return {
 		restrict: 'E',
 		scope:{
-			products: "="
+			products: "=",
+			templateFile: "@"
 		},
 		link: function(scope)
 		{
+			
 			scope.selectAllChild = function(parent)
 			{
 				if(parent.next != null)
@@ -47,8 +49,10 @@ angular.module('app', [])
 				}
 			}
 		},
-		templateUrl: "template.html"
+		templateUrl: function(elem, attrs)
+		{
+			return attrs.templateFile;
+		}
 	}
-
-
+	
 })
