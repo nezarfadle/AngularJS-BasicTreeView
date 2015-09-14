@@ -2,11 +2,6 @@ angular.module('app', [])
 
 .controller("MainController", function($scope){
 
-	var node = {
-		title: "",
-		next: node
-	}
-
 	$scope.items = 
 	[
 
