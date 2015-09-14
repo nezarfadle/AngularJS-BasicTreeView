@@ -1,6 +1,6 @@
 <ul>
 	<li ng-repeat="p in products">
-		<input type="checkbox" ng-model="p.selected" ng-click="selectAllChild(p)">
+		<input type="checkbox" ng-model="p.selected" ng-click="selectAllChildren(p)">
 		{{p.title}}
 		<data-zombie ng-if="p.next != null" onload="products = p.next" ng-include="templateFile"></data-zombie>
 	</li>

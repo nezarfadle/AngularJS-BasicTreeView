@@ -40,12 +40,12 @@ angular.module('app', [])
 		link: function(scope)
 		{
 			
-			scope.selectAllChild = function(parent)
+			scope.selectAllChildren = function(parent)
 			{
 				if(parent.next != null)
 				{
 					parent.next[0].selected = parent.selected;
-					scope.selectAllChild(parent.next[0]);
+					scope.selectAllChildren(parent.next[0]);
 				}
 			}
 		},
@@ -54,5 +54,5 @@ angular.module('app', [])
 			return attrs.templateFile;
 		}
 	}
-	
+
 })
