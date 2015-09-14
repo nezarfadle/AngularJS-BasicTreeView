@@ -33,7 +33,7 @@ angular.module('app', [])
 	return {
 		restrict: 'E',
 		scope:{
-			products: "=",
+			items: "=",
 			templateFile: "@"
 		},
 		link: function(scope)
