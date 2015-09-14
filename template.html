@@ -2,6 +2,6 @@
 	<li ng-repeat="item in items">
 		<input type="checkbox" ng-model="item.selected" ng-click="selectAllChildren(item)">
 		{{item.text}}
-		<data-zombie ng-if="item.next != null" onload="items = item.next" ng-include="templateFile"></data-zombie>
+		<data-zombie ng-if="item.next.length" onload="items = item.next" ng-include="templateFile"></data-zombie>
 	</li>
 </ul>
