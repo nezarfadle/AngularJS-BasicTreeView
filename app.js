@@ -2,30 +2,29 @@ angular.module('app', [])
 
 .controller("MainController", function($scope){
 
-	$scope.items = 
-	[
-
-		{
-			title: "Prodcut 1",
-			next: null
-		},
-		{
-			title: "product 2",
-			next: [
-				{
-					title: "product 2-1",
-					next: [
-						{
-							title: "Prodcut 2-1-1",
-							next: null
-						}
-					]
-				}	
-			]
+	var node = function(text, next, selected)
+	{
+		return {
+			text: text,
+			next: next == null ? [] : [ next ],
+			selected: selected
 		}
+	}
+	
+	$scope.items = [];
 
+	$scope.items[0] = new node("Prodcut 1", null, false);
+	$scope.items[1] = new node("Prodcut 2", null, false);
+	$scope.items[2] = new node("Prodcut 3", null, false);
+	
+	$scope.items[1].next[0] = new node("Prodcut 2.1", null, false);
+	$scope.items[1].next[1] = new node("Prodcut 2.2", null, false);
 
-	];
+	$scope.items[1].next[0].next[0] = new node("Prodcut 2.1.1", null, false);
+	$scope.items[1].next[0].next[1] = new node("Prodcut 2.1.2", null, false);
+
+	$scope.items[2].next[0] = new node("Prodcut 3.1", null, false);
+	
 
 })
 
@@ -42,10 +41,13 @@ angular.module('app', [])
 			
 			scope.selectAllChildren = function(parent)
 			{
-				if(parent.next != null)
+				if(parent.next.length)
 				{
-					parent.next[0].selected = parent.selected;
-					scope.selectAllChildren(parent.next[0]);
+					for(var i = 0; i < parent.next.length; i++ )
+					{
+						parent.next[i].selected = parent.selected;
+						scope.selectAllChildren(parent.next[i]);
+					}
 				}
 			}
 		},
