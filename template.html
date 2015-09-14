@@ -1,7 +1,7 @@
 <ul>
-	<li ng-repeat="item in items">
-		<input type="checkbox" ng-model="item.selected" ng-click="selectAllChildren(item)">
-		{{item.text}}
-		<data-zombie ng-if="item.next.length" onload="items = item.next" ng-include="templateFile"></data-zombie>
+	<li ng-repeat="node in nodes">
+		<input type="checkbox" ng-model="node.selected" ng-click="selectAllChildren(node)">
+		{{node.text}}
+		<data-zombie ng-if="node.next.length" onload="nodes = node.next" ng-include="templateFile"></data-zombie>
 	</li>
 </ul>
